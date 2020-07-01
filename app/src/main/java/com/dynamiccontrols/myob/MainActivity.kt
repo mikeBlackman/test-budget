@@ -5,6 +5,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.fragment.app.FragmentActivity
 import com.dynamiccontrols.myob.databinding.MainActivityBinding
 import com.dynamiccontrols.myob.ui.main.SectionsPagerAdapter
+import com.dynamiccontrols.myob.ui.util.ZoomOutPageTransformer
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -16,7 +17,8 @@ class MainActivity : FragmentActivity() {
     companion object {
         private val TAB_TITLES = arrayOf(
             R.string.tab_text_1,
-            R.string.tab_text_2
+            R.string.tab_text_2,
+            R.string.tab_text_3
         )
     }
 
