@@ -22,7 +22,7 @@ class TransactionsAdapter(
     ): RecyclerView.ViewHolder {
         val itemBinding =
             TransactionCellBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ModulesViewHolder(itemBinding)
+        return TransactionViewHolder(itemBinding)
     }
 
     fun update(transactions: List<Transaction>){
@@ -31,18 +31,18 @@ class TransactionsAdapter(
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
-        val moduleCell = transactions[position]
-        if (holder is ModulesViewHolder) {
-            holder.bind(moduleCell)
+        val transaction = transactions[position]
+        if (holder is TransactionViewHolder) {
+            holder.bind(transaction)
             holder.itemView.setOnClickListener {
-                onItemClick(moduleCell.id)
+                onItemClick(transaction.id)
             }
         }
     }
 
     override fun getItemCount(): Int = transactions.size
 
-    inner class ModulesViewHolder(private val binding: TransactionCellBinding) :
+    inner class TransactionViewHolder(private val binding: TransactionCellBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(transaction: Transaction) {
             val pattern = "dd-MM-YYYY"
@@ -50,9 +50,9 @@ class TransactionsAdapter(
             val date: String = simpleDateFormat.format(transaction.date)
             val df = DecimalFormat("#.##")
             df.roundingMode = RoundingMode.CEILING
-            binding.transactionUsdAmount.text = "Amount in USD: $" + df.format(transaction.amount)
+            binding.transactionUsdAmount.text = "Amount in USD: $" + df.format(transaction.usdAmount)
             binding.transactionDate.text = "Transaction Date: $date"
-            binding.transactionAmount.text = "Amount in NZD: $" + df.format(transaction.usdAmount)
+            binding.transactionAmount.text = "Amount in NZD: $" + df.format(transaction.amount)
             binding.categoryName.text = "Category: " + transaction.categoryName
         }
     }

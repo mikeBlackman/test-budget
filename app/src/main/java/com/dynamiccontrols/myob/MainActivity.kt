@@ -44,9 +44,6 @@ class MainActivity : FragmentActivity() {
             val fm: FragmentManager = supportFragmentManager
             val transactionDialogFragment = TransactionDialogFragment()
             transactionDialogFragment.show(fm, "transaction_dialog_fragment")
-
-//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                .setAction("Action", null).show()
         }
     }
 }

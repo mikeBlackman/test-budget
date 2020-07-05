@@ -39,11 +39,11 @@ class TransactionsFragment : Fragment() {
             adapter = TransactionsAdapter(listOf(), ::onItemClick)
         }
 
-        val amountErrorObserver = Observer<List<Transaction>> { transactions ->
+        val transactionObserver = Observer<List<Transaction>> { transactions ->
             val adapter = binding.transactionsRecyclerView.adapter as TransactionsAdapter
             adapter.update(transactions)
         }
-        viewModel.transactionsLiveData.observe(viewLifecycleOwner, amountErrorObserver)
+        viewModel.transactionsLiveData.observe(viewLifecycleOwner, transactionObserver)
     }
 
     private fun onItemClick(id : Int){
