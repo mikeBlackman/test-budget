@@ -3,4 +3,9 @@
     <string name="tab_text_1">Overview</string>
     <string name="tab_text_2">Transactions</string>
     <string name="tab_text_3">Categories</string>
+    <string name="enter_transaction">Enter transaction details</string>
+    <string name="amount">Amount</string>
+    <string name="category">Category</string>
+    <string name="add_transaction">Add Transaction</string>
+    <string name="not_implemented">Not implemented</string>
 </resources>

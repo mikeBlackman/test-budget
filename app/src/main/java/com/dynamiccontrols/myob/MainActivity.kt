@@ -1,11 +1,13 @@
 package com.dynamiccontrols.myob
 
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentManager
 import com.dynamiccontrols.myob.databinding.MainActivityBinding
 import com.dynamiccontrols.myob.ui.main.SectionsPagerAdapter
+import com.dynamiccontrols.myob.ui.transactiondialog.TransactionDialogFragment
 import com.dynamiccontrols.myob.ui.util.ZoomOutPageTransformer
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -38,9 +40,13 @@ class MainActivity : FragmentActivity() {
         }.attach()
 
         val fab = binding.fab
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
+            val fm: FragmentManager = supportFragmentManager
+            val transactionDialogFragment = TransactionDialogFragment()
+            transactionDialogFragment.show(fm, "transaction_dialog_fragment")
+
+//            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                .setAction("Action", null).show()
         }
     }
 }
